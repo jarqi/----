@@ -1,0 +1,27 @@
+eureka:
+  client:
+    #fetchRegistry: false      #为true时，可以启动，但报异常：Cannot execute request on any known servers
+    serviceUrl:
+      defaultZone: http://center-eureka-server-no1:10001/eureka/,http://center-eureka-server-no2:10002/eureka/,http://center-eureka-server-no3:10003/eureka/
+spring:
+  application:
+    name: config-client
+  rabbitmq:
+     host: localhost
+     port: 5672
+     username: mqroot
+     password: 123123
+  cloud:
+    config:
+      label: master
+      profile: dev
+      #uri: http://localhost:8888/
+      discovery:
+        enabled: true
+        service-id: zk-config-server
+
+management: 
+    security: 
+      enabled: false
+server:
+  port: 8881

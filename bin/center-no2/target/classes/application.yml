@@ -1,0 +1,27 @@
+spring:
+    application:
+        name: center-eureka-server
+
+server:
+    port: 10002 #启动端口
+
+eureka:
+    environment: zk-register
+    server:
+      eviction-interval-timer-in-ms: 5000 #每5秒心跳检测
+      enable-self-preservation: false #设为false，关闭自我保护
+    instance:
+      hostname: center-eureka-server-no2
+      prefer-ip-address: true
+#      ip-address: localhost
+      lease-renewal-interval-in-seconds: 5 # 每5秒续约一次
+      lease-expiration-duration-in-seconds: 15 #每15续约不上,注销注册实例
+ #     instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    
+    client:
+        #registerWithEureka: false  #false:不作为一个客户端注册到注册中心
+        fetchRegistry: false      #为true时，可以启动，但报异常：Cannot execute request on any known servers
+        service-url:
+         defaultZone: http://center-eureka-server-no1:10001/eureka/,http://center-eureka-server-no3:10003/eureka/
+        healthcheck:
+         enabled: false

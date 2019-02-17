@@ -1,0 +1,12 @@
+       
+spring:
+    application:
+        name: zk-service-ribbon
+
+server:
+    port: 10011 #启动端口
+
+eureka:
+    client:
+        service-url: 
+         defaultZone: http://center-eureka-server-no1:10001/eureka/,http://center-eureka-server-no2:10002/eureka/,,http://center-eureka-server-no3:10003/eureka/

@@ -1,0 +1,34 @@
+eureka:
+  client:
+    serviceUrl:
+      #注册中心的地址
+      defaultZone: http://center-eureka-server-no1:10001/eureka/, http://center-eureka-server-no2:10002/eureka/, http://center-eureka-server-no3:10003/eureka/
+server:
+  #当前服务端口号
+  port: 10012
+spring:
+  application:
+    #当前应用名称
+    name: service-Hystrix
+    
+
+    
+feign:
+   hystrix: 
+     enabled: true
+ #  httpclient:
+ #    enabled: true
+    
+   
+   
+#test-client:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+  
+
+turbine:
+  appConfig: Hystrix-server
+  aggregator: 
+    clusterConfig: default
+  clusterNameExpression: new String("default")
+  

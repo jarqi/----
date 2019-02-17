@@ -1,0 +1,28 @@
+ 
+eureka:
+  client:
+    #fetchRegistry: false      #为true时，可以启动，但报异常：Cannot execute request on any known servers
+    serviceUrl:
+      defaultZone: http://center-eureka-server-no1:10001/eureka/,http://center-eureka-server-no2:10002/eureka/,http://center-eureka-server-no3:10003/eureka/
+
+spring:
+  application:
+    name: zk-config-server
+
+  rabbitmq:
+     host: 127.0.0.1
+     port: 5672
+     username: mqroot
+     password: 123123
+  cloud:
+     config:
+       server:
+         git:
+           #uri: https://git.oschina.net/chrywhy/test
+           uri: https://gitee.com/jarqi/zk-cloud/
+           searchPaths: spring-cloud/helloworldConfig
+management: 
+    security: 
+      enabled: false
+server:
+    port: 8888

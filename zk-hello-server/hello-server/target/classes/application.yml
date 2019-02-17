@@ -1,0 +1,11 @@
+spring:
+    application:
+        name: hello-server
+
+server:
+    port: 10009 #启动端口
+
+eureka:
+    client:
+        service-url: 
+         defaultZone: http://center-eureka-server-no1:10001/eureka/,http://center-eureka-server-no2:10002/eureka/,http://center-eureka-server-no3:10003/eureka/

@@ -1,0 +1,13 @@
+eureka:
+  client:
+    serviceUrl:
+      #注册中心的地址
+      defaultZone: http://center-eureka-server-no1:10001/eureka/, http://center-eureka-server-no2:10002/eureka/, http://center-eureka-server-no3:10003/eureka/
+server:
+  #当前服务端口号
+  port: 8763
+spring:
+  application:
+    #当前应用名称
+    name: service-center-test
+    

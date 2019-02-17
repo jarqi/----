@@ -1,0 +1,17 @@
+spring:
+    application:
+        name: feign-server
+#
+server:
+    port: 10005 #启动端口
+#
+eureka:
+    client:
+        service-url: 
+         defaultZone: http://center-eureka-server-no1:10001/eureka/,http://center-eureka-server-no2:10002/eureka/,http://center-eureka-server-no3:10003/eureka/
+#         
+#feign:
+#  httpclient: 
+#    enabled: true
+#
+#test-client.ribbon.NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

@@ -1,0 +1,17 @@
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://center-eureka-server-no1:10001/eureka/,http://center-eureka-server-no2:10002/eureka/,http://center-eureka-server-no3:10003/eureka/
+server:
+    port: 10013
+spring:
+    application:
+        name: service-zuul
+zuul:
+  routes:
+    ribbo:
+      path: /api-ribbon/**
+      serviceId: ZK-SERVICE-RIBBON
+    feign:
+      path: /api-feign/**
+      serviceId: FEIGN-SERVER
